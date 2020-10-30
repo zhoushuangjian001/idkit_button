@@ -1,6 +1,6 @@
 name: idkit_button
 description: A new Flutter package project.
-version: 0.0.1
+version: 0.0.2
 author:
 homepage:
 
@@ -15,7 +15,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
