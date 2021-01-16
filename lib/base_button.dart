@@ -192,7 +192,6 @@ class _IDKitButtonState extends State<IDKitButton> {
         widget.onTap();
         if (_isRepeatClick) {
           _enable = false;
-          print(DateTime.now().millisecondsSinceEpoch);
           Future.delayed(Duration(milliseconds: _repeatTime), () {
             _enable = true;
           });
