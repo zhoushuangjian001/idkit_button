@@ -235,14 +235,12 @@ class _IDKitButtonState extends State<IDKitButton> {
 
   // Text button
   Widget _textButtonBuild() {
-    return Flexible(
-      child: Text(
-        widget.title,
-        style: _textStyle,
-        textAlign: widget.textAlign ?? TextAlign.start,
-        overflow: widget.overflow,
-        maxLines: widget.maxLine,
-      ),
+    return Text(
+      widget.title,
+      style: _textStyle,
+      textAlign: widget.textAlign ?? TextAlign.start,
+      overflow: widget.overflow,
+      maxLines: widget.maxLine,
     );
   }
 
