@@ -155,6 +155,22 @@ class _IDKitButtonState extends State<IDKitButton> {
   }
 
   @override
+  void didUpdateWidget(covariant IDKitButton oldWidget) {
+    if (widget.enable != oldWidget.enable) {
+      _enable = widget.enable;
+    }
+
+    if (widget.style != oldWidget.style) {
+      _textStyle = widget.style;
+    }
+
+    if (widget.image != oldWidget.image) {
+      _imageProvider = widget.image;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
