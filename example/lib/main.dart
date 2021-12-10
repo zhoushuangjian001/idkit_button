@@ -63,6 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
             IDKitButton(
               width: 200,
               bgColor: Colors.green,
+              onTap: () {
+                print('xxx');
+              },
               image:
                   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
             ),

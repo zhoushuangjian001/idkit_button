@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'package:idkit_button/src/button_enum.dart';
 import 'package:idkit_button/src/button_item.dart';
@@ -28,6 +28,7 @@ class IDKitButton extends StatefulWidget {
     this.onTap,
     this.enable = true,
     this.enableStreamController,
+    this.duration,
   }) : super(key: key);
 
   final double? width;
@@ -50,6 +51,7 @@ class IDKitButton extends StatefulWidget {
   final Function()? onTap;
   final bool enable;
   final StreamController<bool>? enableStreamController;
+  final Duration? duration;
   @override
   _IDKitButtonState createState() => _IDKitButtonState();
 }
@@ -57,6 +59,21 @@ class IDKitButton extends StatefulWidget {
 class _IDKitButtonState extends State<IDKitButton> with ButtonMixin {
   // Whether the record button is available
   late bool _isEnable = false;
+  // Button click subscribers
+  late PublishSubject<bool> buttonSubject = PublishSubject<bool>();
+
+  @override
+  void initState() {
+    buttonSubject
+        .throttleTime(widget.duration ?? const Duration(milliseconds: 500))
+        .listen((bool state) {
+      if (state) {
+        widget.onTap?.call();
+      }
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -92,13 +109,15 @@ class _IDKitButtonState extends State<IDKitButton> with ButtonMixin {
           );
         },
       ),
-      onTap: _isEnable
-          ? () {
-              widget.onTap?.call();
-            }
-          : null,
+      onTap: () => buttonSubject.add(_isEnable),
       onTapDown: (TapDownDetails details) {},
       onTapCancel: () {},
     );
+  }
+
+  @override
+  void dispose() {
+    buttonSubject.close();
+    super.dispose();
   }
 }

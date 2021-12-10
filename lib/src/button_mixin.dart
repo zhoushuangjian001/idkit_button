@@ -46,4 +46,22 @@ mixin ButtonMixin {
   Widget getClapboard({double? width, double? height}) {
     return SizedBox(width: width, height: height);
   }
+
+  Function throttle(Function function) {
+    if (function == null) {
+      return function;
+    }
+    bool enable = true;
+
+    Function target = () async {
+      if (enable) {
+        enable = false;
+        function();
+        await Future<dynamic>.delayed(const Duration(seconds: 3), () {
+          enable = true;
+        });
+      }
+    };
+    return target;
+  }
 }
