@@ -3,5 +3,25 @@ enum BtnGraphicLayout {
   lr,
   td,
   rl,
-  dt,
+  bt,
+}
+
+/// Button chamfer type
+enum BtnCornerType {
+  left,
+  top,
+  right,
+  bottom,
+  topLeft,
+  topRight,
+  bottomLeft,
+  bottomRight,
+  all,
+}
+
+/// 渐变类型
+enum BtnGradientType {
+  linear,
+  radial,
+  sweep,
 }

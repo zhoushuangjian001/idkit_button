@@ -44,7 +44,7 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
             ],
           );
           break;
-        case BtnGraphicLayout.dt:
+        case BtnGraphicLayout.bt:
           child = Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,

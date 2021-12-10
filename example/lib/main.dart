@@ -47,63 +47,264 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final String imgpath =
+      'https://img0.baidu.com/it/u=2137484864,1681562941&fm=26&fmt=auto';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IDKitButton(
-              bgColor: Colors.red,
-            ),
-            IDKitButton(
-              width: 200,
-              bgColor: Colors.green,
-              onTap: () {
-                print('xxx');
-              },
-              image:
-                  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
-            ),
-            IDKitButton(
-              width: 200,
-              bgColor: Colors.green,
-              title: '美女',
-              image:
-                  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
-            ),
-            IDKitButton(
-              height: 200,
-              bgColor: Colors.pink,
-              layout: BtnGraphicLayout.rl,
-              title: '美女',
-              image:
-                  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
-            ),
-            IDKitButton(
-              height: 200,
-              width: 300,
-              bgColor: Colors.pink,
-              layout: BtnGraphicLayout.td,
-              title: '美女',
-              image:
-                  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
-            ),
-            IDKitButton(
-              height: 200,
-              width: 300,
-              bgColor: Colors.pink,
-              layout: BtnGraphicLayout.dt,
-              title: '美女',
-              image:
-                  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fbd%2Fd1%2F05%2Fbdd105208ad77d518d21d5ca48aa214f.jpeg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641632244&t=506f8cbec3234768506e239a4c3c5a64',
-            ),
-          ],
-        ),
+      body: ListView(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.red,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.green,
+                width: 80,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.purple,
+                height: 50,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.pink,
+                height: 60,
+                width: 100,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.yellow,
+                margin: const EdgeInsets.all(10),
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.title(
+                '确定',
+                bgColor: Colors.green,
+                padding: const EdgeInsets.all(10),
+                onTap: () {
+                  print('点击');
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IDKitButton.image(
+                imgpath,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.image(
+                imgpath,
+                width: 100,
+                bgColor: Colors.red,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.image(
+                imgpath,
+                height: 100,
+                bgColor: Colors.green,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.image(
+                imgpath,
+                height: 100,
+                width: 100,
+                bgColor: Colors.blue,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IDKitButton.imageAndText(
+                imgpath,
+                '图文',
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.imageAndText(
+                imgpath,
+                '图文',
+                width: 100,
+                bgColor: Colors.red,
+                layout: BtnGraphicLayout.td,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.imageAndText(
+                imgpath,
+                '图文',
+                height: 100,
+                bgColor: Colors.yellow,
+                layout: BtnGraphicLayout.rl,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+              IDKitButton.imageAndText(
+                imgpath,
+                '图文',
+                height: 100,
+                width: 100,
+                bgColor: Colors.greenAccent,
+                layout: BtnGraphicLayout.bt,
+                onTap: () {
+                  print('点击');
+                },
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.left,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.right,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.top,
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.bottomRight,
+                radius: 10,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.topLeft,
+                radius: 10,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.topRight,
+                radius: 10,
+              ),
+              IDKitButton.corner(
+                title: '图文',
+                image: imgpath,
+                bgColor: Colors.red,
+                cornerType: BtnCornerType.bottomLeft,
+                radius: 10,
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IDKitButton.gradient(
+                [Colors.red, Colors.green],
+                width: 100,
+                title: '图文',
+              ),
+              IDKitButton.gradient(
+                [Colors.red, Colors.green],
+                width: 100,
+                height: 100,
+                type: BtnGradientType.radial,
+                title: '图文',
+              ),
+              IDKitButton.gradient(
+                [Colors.red, Colors.green],
+                width: 100,
+                height: 100,
+                type: BtnGradientType.sweep,
+                title: '图文',
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IDKitButton.outline(
+                width: 100,
+                title: '图文',
+              ),
+              IDKitButton.outline(
+                width: 100,
+                height: 100,
+                radius: 10,
+                borderColor: Colors.red,
+                title: '图文',
+                bgColor: Colors.green,
+              ),
+              IDKitButton.outline(
+                width: 100,
+                height: 100,
+                title: '图文',
+                radius: 3,
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
