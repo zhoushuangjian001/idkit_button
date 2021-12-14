@@ -6,6 +6,9 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
   const IDKitButtonItem({
     Key? key,
     this.style,
+    this.imgWidth,
+    this.imgHeight,
+    this.fit,
     required this.title,
     required this.image,
     required this.layout,
@@ -16,6 +19,9 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
   final BtnGraphicLayout layout;
   final double distance;
   final TextStyle? style;
+  final double? imgWidth;
+  final double? imgHeight;
+  final BoxFit? fit;
 
   /// Get the core module
   Widget getChild() {
@@ -27,7 +33,7 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              getImage(image),
+              getImage(image, width: imgWidth, height: imgHeight, fit: fit),
               getClapboard(height: distance),
               getText(title, style: style),
             ],
@@ -40,7 +46,7 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
             children: <Widget>[
               getText(title, style: style),
               getClapboard(width: distance),
-              getImage(image),
+              getImage(image, width: imgWidth, height: imgHeight, fit: fit),
             ],
           );
           break;
@@ -51,7 +57,7 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
             children: <Widget>[
               getText(title, style: style),
               getClapboard(height: distance),
-              getImage(image),
+              getImage(image, width: imgWidth, height: imgHeight, fit: fit),
             ],
           );
           break;
@@ -60,14 +66,14 @@ class IDKitButtonItem extends StatelessWidget with ButtonMixin {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              getImage(image),
+              getImage(image, width: imgWidth, height: imgHeight, fit: fit),
               getClapboard(width: distance),
               getText(title, style: style),
             ],
           );
       }
     } else if (image.isNotEmpty) {
-      child = getImage(image);
+      child = getImage(image, width: imgWidth, height: imgHeight, fit: fit);
     } else {
       child = getText(title, style: style);
     }

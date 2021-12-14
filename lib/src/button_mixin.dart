@@ -11,32 +11,25 @@ mixin ButtonMixin {
   }
 
   /// Get button image module
-  Widget getImage(String imagePath, {BoxFit? fit}) {
+  Widget getImage(
+    String imagePath, {
+    BoxFit? fit,
+    double? width,
+    double? height,
+  }) {
     late Widget child;
     if (imagePath.startsWith(RegExp(r'http://|https://|http|https'))) {
       child = Image.network(
         imagePath,
         fit: fit,
-        width: 40,
-      );
-    } else {
-      child = Image.asset(imagePath);
-    }
-    return child;
-  }
-
-  /// Get button background module
-  Widget getBackgroundImage(String imagePath) {
-    late Widget child;
-    if (imagePath.startsWith(RegExp(r'http://|https://|http|https'))) {
-      child = Image.network(
-        imagePath,
-        fit: BoxFit.fill,
+        width: width,
+        height: height,
       );
     } else {
       child = Image.asset(
         imagePath,
-        fit: BoxFit.fill,
+        width: width,
+        height: height,
       );
     }
     return child;

@@ -117,12 +117,14 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               IDKitButton.image(
                 imgpath,
+                imgSize: const Size(40, 40),
                 onTap: () {
                   print('点击');
                 },
               ),
               IDKitButton.image(
                 imgpath,
+                imgSize: const Size(40, 40),
                 width: 100,
                 bgColor: Colors.red,
                 onTap: () {
@@ -132,6 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.image(
                 imgpath,
                 height: 100,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.green,
                 onTap: () {
                   print('点击');
@@ -139,6 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               IDKitButton.image(
                 imgpath,
+                imgSize: const Size(40, 40),
                 height: 100,
                 width: 100,
                 bgColor: Colors.blue,
@@ -155,6 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.imageAndText(
                 imgpath,
                 '图文',
+                imgSize: const Size(40, 40),
                 onTap: () {
                   print('点击');
                 },
@@ -163,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 imgpath,
                 '图文',
                 width: 100,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 layout: BtnGraphicLayout.td,
                 onTap: () {
@@ -172,6 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.imageAndText(
                 imgpath,
                 '图文',
+                imgSize: const Size(40, 40),
                 height: 100,
                 bgColor: Colors.yellow,
                 layout: BtnGraphicLayout.rl,
@@ -182,6 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.imageAndText(
                 imgpath,
                 '图文',
+                imgSize: const Size(40, 40),
                 height: 100,
                 width: 100,
                 bgColor: Colors.greenAccent,
@@ -199,23 +207,27 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
               ),
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.left,
               ),
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.right,
               ),
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.top,
               ),
@@ -228,6 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.bottomRight,
                 radius: 10,
@@ -235,6 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.topLeft,
                 radius: 10,
@@ -242,6 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.topRight,
                 radius: 10,
@@ -249,6 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
               IDKitButton.corner(
                 title: '图文',
                 image: imgpath,
+                imgSize: const Size(40, 40),
                 bgColor: Colors.red,
                 cornerType: BtnCornerType.bottomLeft,
                 radius: 10,
@@ -263,6 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 [Colors.red, Colors.green],
                 width: 100,
                 title: '图文',
+                imgSize: const Size(40, 40),
               ),
               IDKitButton.gradient(
                 [Colors.red, Colors.green],
@@ -270,6 +287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 type: BtnGradientType.radial,
                 title: '图文',
+                imgSize: const Size(40, 40),
               ),
               IDKitButton.gradient(
                 [Colors.red, Colors.green],

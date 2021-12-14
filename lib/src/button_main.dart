@@ -21,6 +21,8 @@ class IDKitButton extends StatefulWidget {
     this.disableTitle,
     this.image,
     this.disableImage,
+    this.imgSize,
+    this.imgFit,
     this.layout = BtnGraphicLayout.lr,
     this.distance,
     this.margin,
@@ -33,24 +35,25 @@ class IDKitButton extends StatefulWidget {
     this.duration,
   }) : super(key: key);
 
+  /// Text-only button
   factory IDKitButton.title(
     String title, {
-    Color? bgColor,
-    Color? disableBgColor,
     TextStyle? style,
     String? disableTitle,
     TextStyle? disableStyle,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
-    double? width,
-    double? height,
-    String? backgroundImage,
-    Function()? onTap,
-    StreamController<bool>? enableStreamController,
-    bool enable = true,
-    Duration? duration,
+    Color? bgColor,
+    Color? disableBgColor,
     Decoration? decoration,
     Decoration? disableDecoration,
+    double? width,
+    double? height,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    String? backgroundImage,
+    Duration? duration,
+    Function()? onTap,
+    bool enable = true,
+    StreamController<bool>? enableStreamController,
   }) =>
       IDKitButton(
         title: title,
@@ -72,22 +75,25 @@ class IDKitButton extends StatefulWidget {
         disableDecoration: disableDecoration,
       );
 
+  /// Image-only button
   factory IDKitButton.image(
     String image, {
     String? disableImage,
+    Size? imgSize,
+    BoxFit? imgFit,
     Color? bgColor,
     Color? disableBgColor,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
-    double? width,
-    double? height,
-    String? backgroundImage,
-    Function()? onTap,
-    StreamController<bool>? enableStreamController,
-    bool enable = true,
-    Duration? duration,
     Decoration? decoration,
     Decoration? disableDecoration,
+    double? width,
+    double? height,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    String? backgroundImage,
+    Duration? duration,
+    Function()? onTap,
+    bool enable = true,
+    StreamController<bool>? enableStreamController,
   }) =>
       IDKitButton(
         image: image,
@@ -105,29 +111,35 @@ class IDKitButton extends StatefulWidget {
         decoration: decoration,
         disableDecoration: disableDecoration,
         disableImage: disableImage,
+        imgFit: imgFit,
+        imgSize: imgSize,
       );
 
+  /// Image and text button
   factory IDKitButton.imageAndText(
     String image,
     String title, {
+    String? disableImage,
+    Size? imgSize,
+    BoxFit? imgFit,
     TextStyle? style,
     String? disableTitle,
     TextStyle? disableStyle,
-    String? disableImage,
     Color? bgColor,
     Color? disableBgColor,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
-    double? width,
-    double? height,
-    String? backgroundImage,
-    Function()? onTap,
-    StreamController<bool>? enableStreamController,
-    bool enable = true,
-    Duration? duration,
     Decoration? decoration,
     Decoration? disableDecoration,
+    double? width,
+    double? height,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    double? distance,
+    String? backgroundImage,
     BtnGraphicLayout layout = BtnGraphicLayout.lr,
+    Duration? duration,
+    Function()? onTap,
+    bool enable = true,
+    StreamController<bool>? enableStreamController,
   }) =>
       IDKitButton(
         title: title,
@@ -150,8 +162,12 @@ class IDKitButton extends StatefulWidget {
         disableDecoration: disableDecoration,
         disableImage: disableImage,
         layout: layout,
+        imgSize: imgSize,
+        imgFit: imgFit,
+        distance: distance,
       );
 
+  /// Buttons of the chamfer type series
   factory IDKitButton.corner({
     double radius = 4,
     String? title,
@@ -160,16 +176,18 @@ class IDKitButton extends StatefulWidget {
     TextStyle? disableStyle,
     String? image,
     String? disableImage,
+    Size? imgSize,
+    BoxFit? imgFit,
     Color? bgColor,
     Color? disableBgColor,
+    double? width,
+    double? height,
     BtnCornerType cornerType = BtnCornerType.all,
     EdgeInsetsGeometry? margin,
     EdgeInsetsGeometry? padding,
-    double? width,
-    double? height,
-    bool enable = true,
     Duration? duration,
     Function()? onTap,
+    bool enable = true,
     StreamController<bool>? enableStreamController,
   }) {
     return IDKitButton(
@@ -191,34 +209,40 @@ class IDKitButton extends StatefulWidget {
       height: height,
       duration: duration,
       enableStreamController: enableStreamController,
+      imgSize: imgSize,
+      imgFit: imgFit,
     );
   }
+
+  /// Gradient type button
   factory IDKitButton.gradient(
     List<Color> colors, {
     List<Color>? disableColors,
-    TileMode tileMode = TileMode.clamp,
     BtnGradientType type = BtnGradientType.linear,
+    List<double>? stops,
+    TileMode tileMode = TileMode.clamp,
     AlignmentGeometry linearBegin = Alignment.centerLeft,
     AlignmentGeometry linearEnd = Alignment.centerRight,
     AlignmentGeometry center = Alignment.center,
     double radialRadius = 0.5,
     double sweepStartAngle = 0.0,
     double sweepEndAngle = math.pi * 2,
-    List<double>? stops,
-    double radius = 0,
     String? title,
     TextStyle? style,
     String? disableTitle,
     TextStyle? disableStyle,
     String? image,
     String? disableImage,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
+    Size? imgSize,
+    BoxFit? imgFit,
     double? width,
     double? height,
-    bool enable = true,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    double radius = 0,
     Duration? duration,
     Function()? onTap,
+    bool enable = true,
     StreamController<bool>? enableStreamController,
   }) {
     return IDKitButton(
@@ -254,6 +278,8 @@ class IDKitButton extends StatefulWidget {
         endAngle: sweepEndAngle,
         radiusGradient: radialRadius,
       ),
+      imgFit: imgFit,
+      imgSize: imgSize,
       margin: margin,
       padding: padding,
       onTap: onTap,
@@ -265,6 +291,7 @@ class IDKitButton extends StatefulWidget {
     );
   }
 
+  /// Border type button
   factory IDKitButton.outline({
     Color borderColor = Colors.black,
     Color disableBorderColor = Colors.transparent,
@@ -279,13 +306,15 @@ class IDKitButton extends StatefulWidget {
     TextStyle? disableStyle,
     String? image,
     String? disableImage,
-    EdgeInsetsGeometry? margin,
-    EdgeInsetsGeometry? padding,
+    Size? imgSize,
+    BoxFit? imgFit,
     double? width,
     double? height,
-    bool enable = true,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
     Duration? duration,
     Function()? onTap,
+    bool enable = true,
     StreamController<bool>? enableStreamController,
   }) {
     return IDKitButton(
@@ -311,6 +340,8 @@ class IDKitButton extends StatefulWidget {
       ),
       margin: margin,
       padding: padding,
+      imgSize: imgSize,
+      imgFit: imgFit,
       onTap: onTap,
       enable: enable,
       width: width,
@@ -320,27 +351,60 @@ class IDKitButton extends StatefulWidget {
     );
   }
 
+  /// Button width and height
   final double? width;
   final double? height;
+
+  /// Button background color
   final Color? bgColor;
+
+  /// Button non-interactive background color
   final Color? disableBgColor;
   final String? backgroundImage;
+
+  /// Button post decorator
   final Decoration? decoration;
   final Decoration? disableDecoration;
+
+  /// Text of button
   final String? title;
   final String? disableTitle;
+
+  /// Image of button
   final String? image;
   final String? disableImage;
+
+  /// Button image display mode
+  final BoxFit? imgFit;
+
+  /// Button image size
+  final Size? imgSize;
+
+  /// Button gradient mode type
   final BtnGraphicLayout layout;
+
+  /// Button image and text interval
   final double? distance;
+
+  /// Button's inner and outer margins
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
+
+  /// Button text style
   final TextStyle? style;
   final TextStyle? disableStyle;
-  final Function()? onTap;
-  final bool enable;
-  final StreamController<bool>? enableStreamController;
+
+  /// Button throttling time
   final Duration? duration;
+
+  /// Button click event callback
+  final Function()? onTap;
+
+  /// Button can be interactive
+  final bool enable;
+
+  /// Control buttons can interactive subscribers
+  final StreamController<bool>? enableStreamController;
   @override
   _IDKitButtonState createState() => _IDKitButtonState();
 }
@@ -391,6 +455,9 @@ class _IDKitButtonState extends State<IDKitButton> with ButtonMixin {
             child: IDKitButtonItem(
               title: _title ?? '',
               image: _image ?? '',
+              imgHeight: widget.imgSize?.height,
+              imgWidth: widget.imgSize?.width,
+              fit: widget.imgFit,
               distance: widget.distance ?? 5,
               layout: widget.layout,
               style: _style,

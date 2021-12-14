@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:idkit_button/idkit_button.dart';
 
 class BtnTools {
+  // Get button corner decoration object
   static Decoration? getCornerDecoration(
     double radius,
     BtnCornerType cornerType, {
@@ -87,6 +88,7 @@ class BtnTools {
     return decoration;
   }
 
+  // Get the button gradient decoration object
   static Decoration? getGradientDecoration(
     BtnGradientType type,
     List<Color> colors, {
@@ -141,6 +143,7 @@ class BtnTools {
     return decoration;
   }
 
+  // Get the button outline decoration object
   static Decoration? getOutlineDecoration({
     Color borderColor = Colors.black,
     double borderWidth = 1.0,

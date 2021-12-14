@@ -19,7 +19,7 @@ enum BtnCornerType {
   all,
 }
 
-/// 渐变类型
+/// Button gradient type
 enum BtnGradientType {
   linear,
   radial,
