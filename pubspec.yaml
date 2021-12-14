@@ -1,5 +1,5 @@
 name: idkit_button
-description: A new Flutter package project.
+description: This package mainly deals with the convenient construction of button components that interact with users in the development of the Flutter project.
 version: 0.0.1
 homepage: https://github.com/zhoushuangjian001/idkit_button
 

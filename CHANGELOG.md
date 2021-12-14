@@ -1,3 +1,37 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Convenient expansion of button components
+
+  1.  Text button
+      ```dart
+      factory IDKitButton.title(...) -> IDKitButton
+      ```
+  2.  Image button
+      ```dart
+      factory IDKitButton.image(...) -> IDKitButton
+      ```
+  3.  Image and text button
+      ```dart
+      factory IDKitButton.imageAndText(...) -> IDKitButton
+      ```
+  4.  Cut corner type button
+
+      ```dart
+      factory IDKitButton.corner(...) -> IDKitButton
+      ```
+
+  5.  Gradient type button
+      ```dart
+      factory IDKitButton.gradient(...) -> IDKitButton
+      ```
+  6.  Border type button
+
+      ```dart
+      factory IDKitButton.outline(...) -> IDKitButton
+      ```
+
+  7.  Custom type button
+
+      ```dart
+      const IDKitButton(...) -> IDKitButton
+      ```
