@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:idkit_button/idkit_button.dart';
 
 class BtnTools {
+  const BtnTools();
   // Get button corner decoration object
   static Decoration? getCornerDecoration(
     double radius,

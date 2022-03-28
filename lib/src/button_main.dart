@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:math' as math;
-import 'package:idkit_button/src/button_tools.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'package:idkit_button/src/button_enum.dart';
 import 'package:idkit_button/src/button_item.dart';
 import 'package:idkit_button/src/button_mixin.dart';
+import 'package:idkit_button/src/button_tools.dart';
+import 'package:rxdart/rxdart.dart';
 
 class IDKitButton extends StatefulWidget {
   const IDKitButton({
@@ -31,7 +31,7 @@ class IDKitButton extends StatefulWidget {
     this.disableStyle,
     this.onTap,
     this.enable = true,
-    this.enableStreamController,
+    this.enableStream,
     this.duration,
   }) : super(key: key);
 
@@ -53,7 +53,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) =>
       IDKitButton(
         title: title,
@@ -66,7 +66,7 @@ class IDKitButton extends StatefulWidget {
         height: height,
         backgroundImage: backgroundImage,
         onTap: onTap,
-        enableStreamController: enableStreamController,
+        enableStream: enableStream,
         enable: enable,
         duration: duration,
         bgColor: bgColor,
@@ -93,7 +93,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) =>
       IDKitButton(
         image: image,
@@ -103,7 +103,7 @@ class IDKitButton extends StatefulWidget {
         height: height,
         backgroundImage: backgroundImage,
         onTap: onTap,
-        enableStreamController: enableStreamController,
+        enableStream: enableStream,
         enable: enable,
         duration: duration,
         bgColor: bgColor,
@@ -139,7 +139,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) =>
       IDKitButton(
         title: title,
@@ -153,7 +153,7 @@ class IDKitButton extends StatefulWidget {
         height: height,
         backgroundImage: backgroundImage,
         onTap: onTap,
-        enableStreamController: enableStreamController,
+        enableStream: enableStream,
         enable: enable,
         duration: duration,
         bgColor: bgColor,
@@ -188,7 +188,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) {
     return IDKitButton(
       title: title,
@@ -197,10 +197,8 @@ class IDKitButton extends StatefulWidget {
       disableStyle: disableStyle,
       image: image,
       disableImage: disableImage,
-      decoration:
-          BtnTools.getCornerDecoration(radius, cornerType, color: bgColor),
-      disableDecoration: BtnTools.getCornerDecoration(radius, cornerType,
-          color: disableBgColor),
+      decoration: BtnTools.getCornerDecoration(radius, cornerType, color: bgColor),
+      disableDecoration: BtnTools.getCornerDecoration(radius, cornerType, color: disableBgColor),
       margin: margin,
       padding: padding,
       onTap: onTap,
@@ -208,7 +206,7 @@ class IDKitButton extends StatefulWidget {
       width: width,
       height: height,
       duration: duration,
-      enableStreamController: enableStreamController,
+      enableStream: enableStream,
       imgSize: imgSize,
       imgFit: imgFit,
     );
@@ -243,7 +241,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) {
     return IDKitButton(
       title: title,
@@ -287,7 +285,7 @@ class IDKitButton extends StatefulWidget {
       width: width,
       height: height,
       duration: duration,
-      enableStreamController: enableStreamController,
+      enableStream: enableStream,
     );
   }
 
@@ -315,7 +313,7 @@ class IDKitButton extends StatefulWidget {
     Duration? duration,
     Function()? onTap,
     bool enable = true,
-    StreamController<bool>? enableStreamController,
+    Stream<bool>? enableStream,
   }) {
     return IDKitButton(
       title: title,
@@ -347,7 +345,7 @@ class IDKitButton extends StatefulWidget {
       width: width,
       height: height,
       duration: duration,
-      enableStreamController: enableStreamController,
+      enableStream: enableStream,
     );
   }
 
@@ -404,7 +402,7 @@ class IDKitButton extends StatefulWidget {
   final bool enable;
 
   /// Control buttons can interactive subscribers
-  final StreamController<bool>? enableStreamController;
+  final Stream<bool>? enableStream;
   @override
   _IDKitButtonState createState() => _IDKitButtonState();
 }
@@ -417,9 +415,7 @@ class _IDKitButtonState extends State<IDKitButton> with ButtonMixin {
 
   @override
   void initState() {
-    buttonSubject
-        .throttleTime(widget.duration ?? const Duration(milliseconds: 500))
-        .listen((bool state) {
+    buttonSubject.throttleTime(widget.duration ?? const Duration(milliseconds: 500)).listen((bool state) {
       if (state) {
         widget.onTap?.call();
       }
@@ -432,22 +428,20 @@ class _IDKitButtonState extends State<IDKitButton> with ButtonMixin {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       child: StreamBuilder<bool>(
-        stream: widget.enableStreamController?.stream,
+        stream: widget.enableStream,
         initialData: widget.enable,
         builder: (_, AsyncSnapshot<bool> state) {
           final bool isAble = state.data ?? false;
           _isEnable = isAble;
-          final Color? _bgColor =
-              isAble ? widget.bgColor : widget.disableBgColor;
-          final Decoration? _decoration =
-              isAble ? widget.decoration : widget.disableDecoration;
-          final String? _title = isAble ? widget.title : widget.disableTitle;
-          final String? _image = isAble ? widget.image : widget.disableImage;
-          final TextStyle? _style = isAble ? widget.style : widget.disableStyle;
+          final Color _bgColor = isAble ? widget.bgColor ?? Theme.of(context).primaryColor : widget.disableBgColor ?? Colors.grey.shade300;
+          final Decoration? _decoration = isAble ? widget.decoration : widget.disableDecoration ?? widget.decoration;
+          final String? _title = isAble ? widget.title : widget.disableTitle ?? widget.title;
+          final String? _image = isAble ? widget.image : widget.disableImage ?? widget.image;
+          final TextStyle? _style = isAble ? widget.style : widget.disableStyle ?? widget.style ?? Theme.of(context).textTheme.button;
           return Container(
             margin: widget.margin,
             padding: widget.padding,
-            color: _bgColor,
+            color: _decoration == null ? _bgColor : null,
             alignment: Alignment.center,
             width: widget.width,
             height: widget.height,

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:idkit_button/idkit_button.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -47,8 +49,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String imgpath =
-      'https://img0.baidu.com/it/u=2137484864,1681562941&fm=26&fmt=auto';
+  final String imgpath = 'https://img0.baidu.com/it/u=2137484864,1681562941&fm=26&fmt=auto';
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             'Next',
             bgColor: Colors.blue,
             height: 44,
+            enable: false,
             onTap: () {
               print('Button on click!');
             },

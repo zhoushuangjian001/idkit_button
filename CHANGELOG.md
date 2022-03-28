@@ -35,3 +35,8 @@
       ```dart
       const IDKitButton(...) -> IDKitButton
       ```
+
+## 0.0.2
+
+1. Replaced StreamControl for buttons with Stream.
+2. Set the default value of the button when it is not available.
